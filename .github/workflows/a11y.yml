@@ -16,7 +16,8 @@ jobs:
           with:
             node-version: 24
             cache: npm
-        - run: npm ci
+        - run: npm ci --ignore-scripts 
+        - run: npm run postinstall   # ngcc, which Angular 15 still needs
         - uses: ngbracket/a11y-devtools-action@v1
           with:
             serve: npx ng serve
